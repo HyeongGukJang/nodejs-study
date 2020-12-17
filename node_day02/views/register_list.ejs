@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<body>
+    <h1>과정 접수 목록</h1>
+    <hr>
+    <table class="table">
+        <tr class="success">
+            <th>번호</th>
+            <th>이름</th>
+            <th>연락처</th>
+            <th>과목</th>
+            <th>학습일</th>
+        </tr>
+        <%
+    for (var i in list) {
+        var data = list[i];
+    %>
+        <tr class="danger">
+            <td><%=data.no %></td>
+            <td><a href="/register/detail/<%=data.no %>"><%=data.name %></a></td>
+            <td><%=data.phone %></td>
+            <td><%=data.subject %></td>
+            <td><%=data.studyday %></td>
+        </tr>
+        <%
+    }// end of for
+    %>
+    </table>
+    <div><a href="/html/">HOME</a>
+        <a href="/html/register_from.html"> 돌아가기</a></div>
+</body>
+
+</html>

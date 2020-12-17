@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>/public/socket_io.html</title>
+</head>
+
+<body>
+
+    <h1>socket.io - client</h1>
+    <hr>
+
+    <script src="js/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:3000');
+        socket.on('connect', function() {
+            console.log('서버와 소켓 연결 됨');
+            
+            socket.on('news', function(data) {
+                console.log('data => ', data);
+            });
+            
+            socket.emit('my other event', {'my':'data'});
+        });
+    </script>
+
+</body>
+
+</html>

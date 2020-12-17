@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/public/calc.html</title>
+</head>
+<body>
+    
+    <h1>Ajax와 Nodejs를 이용한 웹 계산기</h1>
+    <form action="">
+        <input type="text" name="a">
+        <input type="text" name="b">
+        <select name="op" id="">
+            <option value="plus">plus</option>
+            <option value="minus">minus</option>
+            <option value="mult">mult</option>
+            <option value="div">div</option>
+        </select>
+        <input type="submit" value="result">
+    </form>
+    <hr>
+    <div id="result">결과: </div>
+    
+    <script>
+        var form = document.forms[0];
+        //console.log(form);
+        form.onsubmit = function() {
+            event.preventDefault(); // form 기능 일시 정지
+            
+            var op = this.op.value;
+            var a = this.a.value;
+            var b = this.b.value;
+            var url = "http://localhost:3000/"+op+"/"+a+"/"+b;
+            //console.log(url);
+            
+            // Ajax 처리한다.
+            var xhr = new XMLHttpRequest();
+            //console.log(xhr);
+            xhr.onreadystatechange = function() {
+                if(this.readyState==4 && this.status==200) {
+                    //console.log(this.readyState, this.status, this.responseText);
+                    var result = document.getElementById("result");
+                    result.innerHTML = "결과: "+a+op+b+"="+this.responseText;
+                }
+            }
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
+
+<!-- 이 페이지의 실행은 '실시간 미리보기' 단독으로 한다. (번개표시) -->
+
+
+
+
+

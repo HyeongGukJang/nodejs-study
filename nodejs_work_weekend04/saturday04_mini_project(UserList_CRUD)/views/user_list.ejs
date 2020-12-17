@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/views/user_list.ejs</title>
+</head>
+<body>
+   
+   <h1>사용자 목록 페이지</h1>
+    <table border="1" width="500">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>region</th>
+            <th>상세보기</th>
+            <th>수정하기</th>
+            <th>삭제하기</th>
+        </tr>
+    <%
+        for(user of users) {
+    %>
+        <tr>
+            <td><%=user.id%></td>
+            <td><%=user.name%></td>
+            <td><%=user.region%></td>
+            <td><a href="/user/<%=user.id%>">상세보기</a></td>
+            <td><a href="/user/<%=user.id%>/modify">수정하기</a></td>
+            <td><a href="/user/<%=user.id%>/delete">삭제하기</a></td>
+        </tr>
+    <%
+        } // end of for
+    %>
+    </table>
+</body>
+</html>

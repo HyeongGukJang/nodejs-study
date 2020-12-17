@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>과정 접수 페이지</h1>
+    <form action="/register/input" method="POST">
+        <table border="1" width="550">
+            <tr>
+                <th><label for="name">신청자</label></th>
+                <td><input type="text" name="name" id="name" value="KIM"></td>
+            </tr>
+            <tr>
+                <th><label for="phone">연락처</label></th>
+                <td><input type="text" name="phone" id="phone" value="010-1111-1234"></td>
+            </tr>
+            <tr>
+                <th><label for="subject">교과목</label></th>
+                <td>
+                    <select name="subject" id="subject">
+                        <option value="JAVA">JAVA</option>
+                        <option value="ORACLE">ORACLE</option>
+                        <option value="JAVASCRIPT">JAVASCRIPT</option>
+                        <option value="jQuery" selected>jQuery</option>
+                        <option value="SPRING">SPRING</option>
+                        <option value="SERVLET">SERVLET</option>
+                        <option value="LINUX">LINUX</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="studyday">교육기간</label></th>
+                <td><input type="text" name="studyday" id="studyday" value="2020-11-20"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="등록하기">
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

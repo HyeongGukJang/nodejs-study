@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/bootstrap.css">
+    <script src="/html/js/jquery.js"></script>
+    <script src="/html/js/bootstrap.js"></script>
+    <script src="/html/js/moment.js"></script>
+    <script src="/html/js/underscore.js"></script>
+    <style>
+        table {
+            width: 600px;
+        }
+        td, th {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>중고차 목록</h1>
+    <hr>
+    <div id="carListArea">
+        <table>
+            <tr>
+                <th>NO</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>COMPANY</th>
+                <th>YEAR</th>
+            </tr>
+        <%
+        for(var i=0; i<carList.length; i++) {
+            var car = carList[i];
+        %>
+            <tr>
+                <td><%= car.no %></td>
+                <td><%= car.name %></td>
+                <td><%= car.price %></td>
+                <td><%= car.company %></td>
+                <td><%= car.year %></td>
+            </tr>
+        <% } // end of for %>
+        </table>
+    </div>
+    <a href="/html/car_input.html">자동차 추가</a>
+</body>
+</html>

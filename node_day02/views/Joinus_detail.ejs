@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+  
+    *{
+        width: 550px;
+        text-align: center;
+    }
+   
+</style>
+<body>
+    <div class="container">
+        <h1>회원 정보 상세페이지</h1>
+        <hr>
+        <table class="table">
+            <tr>
+                <th>번호 : </th>
+                <td><%=Jdata.Jno%></td>
+            </tr>
+            <tr>
+                <th>아이디 : </th>
+                <td><%=Jdata.Jname%></td>
+            </tr>
+            <tr>
+                <th>비번 : </th>
+                <td><%=Jdata.Jpw%></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <a href="/html/">HOME </a>|
+                    <a href="/Joinus/list">회원 목록 </a>|
+                    <a href="/Joinus/modify/<%=Jdata.Jno%>">수정하기 </a>|
+                    <a href="/Joinus/delete/<%=Jdata.Jno%>">삭제하기 </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

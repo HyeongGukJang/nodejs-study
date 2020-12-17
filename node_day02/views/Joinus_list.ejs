@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+h1{
+    font-size: 40px;
+    text-align: center;
+}
+#gohome{
+    text-align: center;
+}
+* {
+    text-align: center;
+    width: 550px;
+}
+th {
+    text-align: center;
+}
+
+</style>
+<body>
+    <h1>회원 목록</h1>
+    <hr>
+    <table class="table">
+        <tr class="success">
+            <th>순번</th>
+            <th>이름</th>
+            <th>비번</th>
+        </tr>
+        <%
+        for (var i in list) {
+            var Jdata = list[i];
+        %>
+        <tr class="danger">
+            <td><%=Jdata.Jno %></td>
+            <td><a href="/Joinus/detail/<%=Jdata.Jno%>"><%=Jdata.Jname %></a></td>
+            <td><%=Jdata.Jpw %></td>
+        </tr>
+        
+        <%
+    }// end of for
+    %>
+    </table>
+    <div><a href="/html/">HOME </a>|
+    <a href="/html/Joinus_from.html"> 돌아가기</a></div>
+</body>
+
+</html>

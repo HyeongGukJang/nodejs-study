@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>::: 자동차 목록 :::</h1>
+    <table border="1">
+        <tr>
+            <th>차종</th>
+            <th>가격</th>
+            <th>연식</th>
+            <th>회사</th>
+        </tr>
+        <%
+        for(var car of cars){
+        %>
+        <tr>
+            <td><%=car['name'] %></td>
+            <td><%=car['price'] %></td>
+            <td><%=car['year'] %></td>
+            <td><%=car['company'] %></td>
+        </tr>
+        <% } %>
+    </table>
+    <hr>
+    <%- include ("input", {})%>
+</body>
+</html>

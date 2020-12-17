@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/public/chat_client.html</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script>
+        var socket;
+        var host;
+        var port;
+        
+        function println(line) {
+            console.log(line);
+            $('#result').append("<br>"+line);
+        }
+        
+        function connectToServer() {
+            host = $("#hostInput").val();
+            port = $('#portInput').val();
+            var url = 'http://'+host+":"+port;
+            socket = io.connect(url);
+            socket.on('connect', function() {
+                println('서버에 연결됨.'+url);
+                
+                socket.on('message', function(data) {
+                    println(data.sender +":"+data.message);
+                });
+            });
+            
+            socket.on('disconnect', function() {
+                println('연결이 종료되었다.');
+            });
+        }
+        
+        $(document).ready(function() {
+            $('#connectButton').click(function() {
+                connectToServer();
+            });
+            
+            $('#sendBtn').click(function() {
+                var msgData = {
+                    sender:$('#sender').val(),
+                    recepient : $('#recepient').val(),
+                    message : $('#message').val()
+                }
+                socket.emit('message', msgData);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>채팅 클라이언트</h1>
+    <br>
+    <div>
+        <input type="text" id="hostInput" value="localhost"><br>
+        <input type="text" id="portInput" value="3000">
+        <input type="button" id="connectButton" value="연결하기">
+    </div>
+    <hr>
+    <table>
+        <tr>
+            <th>보내는 사람 ID</th>
+            <td><input type="text" id="sender" value="test01"></td>
+        </tr>
+        <tr>
+            <th>받는사람 ID</th>
+            <td><input type="text" id="recepient" value="All"></td>
+        </tr>
+        <tr>
+            <th>메세지 데이터</th>
+            <td><input type="text" id="message" value="Hello"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="sendBtn">전송</button>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <p>결과: </p>
+    <div id="result"></div>
+</body>
+</html>

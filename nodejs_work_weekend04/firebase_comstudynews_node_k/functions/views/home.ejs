@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/views/home.ejs</title>
+</head>
+<body>
+    
+    <h1>길동이의 홈페이지</h1>
+    
+    <%
+    for(var user of users) {
+    %>
+        <p><%=user.id%>|<%=user.name%>|<%=user.phone%>|<%=user._id%>|</p>
+    <%
+    }
+    %>
+</body>
+</html>

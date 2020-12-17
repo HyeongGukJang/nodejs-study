@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/views/login_result.ejs</title>
+</head>
+<body>
+    
+    <h2>로그인 처리 결과</h2>
+    <%
+        var userName = user.name;
+        var userId = user.id;
+    %>
+    <%=userName%>님 환영합니다.<br>
+    <p>사용자 ID : <%=userId%></p>
+    
+</body>
+</html>

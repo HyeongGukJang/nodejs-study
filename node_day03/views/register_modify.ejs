@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <h2>등록 정보 상세 페이지</h2>
+    <hr>
+<form action="/register/modify" method="POST">
+    <table class="table">
+        <tr>
+            <th width="20%">번호</th>
+            <td width="80%">
+                <%=data.no %>
+                <input type="hidden" name="no" value="<%=data.no %>"></td>
+        </tr>
+        <tr>
+            <th>성명</th>
+            <td><input type="text" name="name" value="<%=data.name %>"></td>
+        </tr>
+        <tr>
+            <th>연락처</th>
+            <td><input type="text" name="phone" value="<%=data.phone %>"></td>
+        </tr>
+        <tr>
+            <th>과목</th>
+            <td><input type="text" name="subject" value="<%=data.subject %>"></td>
+        </tr>
+        <tr>
+            <th>수업일자</th>
+            <td><input type="text" name="studyday" value="<%=data.studyday %>"></td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <input class="btn btn-primary" role="button" type="submit" value="완료"> | 
+                <a class="btn btn-info" role="button" href="/register/detail/<%=data.no %>">취소</a>
+            </th>
+        </tr>
+    </table>
+</form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/public/chat_client_socket.html</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/socket.io.js"></script>
+    <script>
+        var socket;
+        var host;
+        var port;
+        
+        $(document).ready(function() {
+            $('#connectBtn').click(function() {
+                host = $('#hostInput').val();
+                port = $('#protInput').val();
+                var url = 'http://' + host + ':' + port;
+                socket  = io.connect(url);
+                
+                socket.on('connect', function() {
+                    console.log('서버에 연결됨.', url);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>채팅 클라이언트</h1>
+    <br>
+    <div>
+        <input type="text" id="hostInput" value="localhost">
+        <input type="text" id="protInput" value="3000">
+        <input type="button" id="connectBtn" value="서버연결">
+    </div>
+</body>
+</html>

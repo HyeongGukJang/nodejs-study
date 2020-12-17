@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <h2>등록 정보 상세 페이지</h2>
+    <hr>
+    <table class="table">
+        <tr>
+            <th width="20%">번호</th>
+            <td width="80%"><%=data.no %></td>
+        </tr>
+        <tr>
+            <th>성명</th>
+            <td><%=data.name %></td>
+        </tr>
+        <tr>
+            <th>연락처</th>
+            <td><%=data.phone %></td>
+        </tr>
+        <tr>
+            <th>과목</th>
+            <td><%=data.subject %></td>
+        </tr>
+        <tr>
+            <th>수업일자</th>
+            <td><%=data.studyday %></td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <a href="/html/">홈</a> |
+                <a href="/register/list">목록</a> | 
+                <a href="/register/modify/<%=data.no %>">수정하기</a> | 
+                <a href="/register/delete/<%=data.no %>">삭제하기</a>
+            </th>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>

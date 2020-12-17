@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/views/user_modify.ejs</title>
+</head>
+<body>
+
+    <h1>사용자 정보 수정 페이지</h1>
+    <form action="/user/<%=user.id%>/update" method="post">
+        <table border="1" width="500">
+            <tr>
+                <td>성명</td>
+                <td><input type="text" name="name" value="<%=user.name%>"></td>
+            </tr>
+            <tr>
+                <td>지역</td>
+                <td><input type="text" name="region" value="<%=user.region%>"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="수정하기"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

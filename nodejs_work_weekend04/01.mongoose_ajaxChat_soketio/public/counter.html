@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>카운터 예제</h1>
+    <p>Sever connect Count : <span id="cntArea">0</span></p>
+    
+    <script>
+        var size = 0;
+        var action = function() {
+            var xhr = new XMLHttpRequest();
+            var url = 'http://localhost:3000/count/'+size;
+            xhr.onreadystatechange = function() {
+                if(this.readyState==4 && this.status==200 && this.responseText!=""){
+                    var data = this.responseText;
+                    document.querySelector('#cntArea').innerText = data;
+                    size = data;
+                }
+            }
+            xhr.open('get', url, true);
+            xhr.send();
+        }
+        
+        setInterval(action, 500);
+        
+        var xhr = new XMLHttpRequest();
+        var url = 'http://localhost:3000/';
+        xhr.onreadystatechange = function() {
+            
+        }
+        xhr.open('get', url, true);
+        xhr.send();
+    </script>
+    
+</body>
+</html>

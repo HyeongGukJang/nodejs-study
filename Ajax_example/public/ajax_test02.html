@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function () {
+            var xhr = new XMLHttpRequest();
+            // console.log(xhr);
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var jsonData = JSON.parse(this.responseText);
+                    console.log(jsonData);
+                }
+            };
+
+            var data = "user=HONG&msg=I LOVE YOU";
+            xhr.open("GET", "/data2?" + data, true); // 첫번째는 메소드, 두번째는 주소(url), 세번째는 동기,비동기(false=동기, ture=비동기)
+            xhr.send();
+
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

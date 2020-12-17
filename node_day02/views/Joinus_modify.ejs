@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>회원 정보 수정페이지</h1>
+        <hr>
+        <form action="/Joinus/modify" method="POST">
+        <table class="table">
+            <tr>
+                <th width="20%">번호</th>
+                <td width="80%">
+                    <%=Jdata.Jno %>
+                    <input type="hidden" name="Jno" value="<%=Jdata.Jno %>">
+                </td>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" name="Jname" value="<%=Jdata.Jname %>"></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="text" name="Jpw" value="<%=Jdata.Jpw %>"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input class="btn btn-primary" role="button" type="submit" value="완료"> |
+                    <a class="btn btn-info" role="button" href="/Joinus/detail/<%=Jdata.Jno %>">취소</a>
+                </th>
+            </tr>
+        </table>
+        </form>
+    </div>
+
+</body>
+
+</html>

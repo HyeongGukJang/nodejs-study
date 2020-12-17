@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/public/count.html</title>
+</head>
+<body>
+    <div id="result">현재 방문자 수: </div>
+    
+    <script>
+        var url = "http://localhost:3000/count";
+        var xhr = new XMLHttpRequest();
+        var size;
+        xhr.onreadystatechange = function() {
+            if(this.readyState==4 && this.status==200) {
+                var result = document.getElementById("result");
+                var respData = JSON.parse(this.responseText);
+                //console.log(respData);
+                result.innerHTML = "현재 방문자 수: " + respData.count;
+                size + respData.count;
+            }
+        }
+        xhr.open("GET", url, true);
+        xhr.send();
+        
+        setInterval(function() {
+            var url2 = "http://localhost:3000/chk_cnt?size=" + size;
+            xhr.onreadystatechange = function() {
+                if(this.readyState==4 && this.status==200 && this.responseText != "") {
+                    var result = document.getElementById("result");
+                    var respData = JSON.parse(this.responseText);
+                    //console.log(respData);
+                    result.innerHTML = "현재 방문자 수: " + respData.count;
+                    size + respData.count;
+                }
+            }
+            xhr.open("GET", url2, true);
+            xhr.send();
+        }, 500);
+    </script>
+</body>
+</html>
